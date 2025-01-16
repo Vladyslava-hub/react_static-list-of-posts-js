@@ -1,4 +1,8 @@
+import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 import { CommentInfo } from '../CommentInfo';
+import './CommentList.scss';
 
 export const CommentList = ({ comments }) => (
   <div className="CommentList">
@@ -7,3 +11,8 @@ export const CommentList = ({ comments }) => (
     ))}
   </div>
 );
+
+CommentList.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  comments: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

@@ -1,23 +1,25 @@
-// eslint-disable-next-line no-unused-vars
-import { UserInfo } from '../UserInfo';
-import { CommentList } from '../CommentList';
+import React from 'react';
+import './PostInfo.scss';
 
-export const PostInfo = ({ post }) => (
-  <div className="PostInfo">
-    <div className="PostInfo__header">
-      <h3 className="PostInfo__title">{post.title}</h3>
-      <p>
-        Posted by{' '}
-        <a href={`mailto:${post.user.email}`} className="UserInfo">
-          {post.user.name}
-        </a>
-      </p>
+const PostInfo = ({ post }) => {
+  return (
+    <div className="PostInfo">
+      <h2>{post.title}</h2>
+      <p>{post.body}</p>
+      <div className="user-info">
+        <strong>User ID:</strong> {post.userId}
+      </div>
+      <div className="comments">
+        <h3>Comments:</h3>
+        <ul>
+          {post.comments.map((comment, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <li key={index}>{comment.text}</li>
+          ))}
+        </ul>
+      </div>
     </div>
-    <p className="PostInfo__body">{post.body}</p>
-    {post.comments.length > 0 ? (
-      <CommentList comments={post.comments} />
-    ) : (
-      <b data-cy="NoCommentsMessage">No comments yet</b>
-    )}
-  </div>
-);
+  );
+};
+
+export default PostInfo;

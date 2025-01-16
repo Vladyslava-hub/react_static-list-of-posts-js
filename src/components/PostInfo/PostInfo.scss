@@ -1,11 +1,23 @@
 .PostInfo {
-  margin: 20px 0;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.PostInfo__title {
-  font-size: 1.5rem;
+.user-info {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-.PostInfo__body {
-  font-size: 1rem;
+.comments {
+  margin-top: 10px;
+}
+
+.comments ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.comments li {
+  padding: 5px 0;
 }

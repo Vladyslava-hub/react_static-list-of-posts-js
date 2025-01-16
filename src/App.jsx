@@ -1,15 +1,15 @@
-// App.jsx
-import { PostInfo } from './components/PostInfo/PostInfo';
-import postsFromServer from './api/posts.json';
+// src/App.jsx
+import PostList from './components/PostList';
+import './App.scss';
 
-export const App = () => (
-  <section className="App">
-    <h1 className="App__title">Static list of posts</h1>
+const posts = require('./api/posts.json');
 
-    <div className="PostList">
-      {postsFromServer.map(post => (
-        <PostInfo key={post.id} post={post} />
-      ))}
+const App = () => {
+  return (
+    <div className="App">
+      <PostList posts={posts} />
     </div>
-  </section>
-);
+  );
+};
+
+export default App;
